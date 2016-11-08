@@ -1,180 +1,485 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-</head>
+		<title>技术share</title>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section>
+                        <h2>从设计模式到MVC框架</h2>
+                        <p style="font-size: 50px">王方</p>
+                    </section>
+                    <section>
+                        <h1>
+                            <img src="images/1.png" width="100%">
+                        </h1>
+                    </section>
+                </section>
+				<section>
+                    <section>
+                        <h3>认识下MVC</h3>
+                    </section>
+                    <section>
+                        <h2>初探</h2>
+                        <ul>
+                            <li>1979年，Trygve Reenskaug首次提出，为了让专业的对象做专业的事情，View就只负责视图相关的东西，Model就只负责描述数据模型，Controller负责总控，各自协作</li>
+                            <li>在《设计模式》一书中涉及的23种设计模式中没有MVC，它是观察者模式(Observer), 策略模式(Strategy)和组合模式(Composite)的合体</li>
+                            <li>前端框架（尤其是各种JavaScript框架）大爆炸的背景下，几乎所有的框架都会号称自己具有MVC的特性。</li>
+                        </ul>
+                    </section>
+                </section>
+				<section>
+                    <h3>MVC的组合拳</h3>
+                    <ul>
+                        <li>策略模式</li>
+                        <li>观察者模式</li>
+                        <li>组合模式</li>
+                    </ul>
+                    <p>在不同的框架中，还会有其它的设计模式的体现，并不仅限于上面提到的三种模式</p>
+                </section>
+                <section>
+                    <section>
+                        <h3>策略模式</h3>
+                    </section>
+                    <section>
+                        <h3>策略模式的概念：</h3>
+                        <P>策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，
+                            从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。</P>
+                    </section>
+                    <section>
+                        <h3>策略模式涉及角色</h3>
+                        <ul>
+                            <li>环境角色</li>
+                            <li>抽象设计角色</li>
+                            <li>具体策略角色</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>
+                            <img src="images/4.png">
+                        </h1>
+                    </section>
+                    <section>
+                        <p style="text-align:left ">很多公司的年终奖是根据员工的工资基数和年底绩效情况来发放的。例如，绩效为S的人年终奖有4倍工资，
+                            绩效为A的人年终奖有3倍工资，而绩效为B的人年终奖是2倍工资。假设财务部要求我们提供一段代码，
+                            来方便他们计算员工的年终奖。</p>
+                    </section>
+                    <section>
+                        <h5>一般的代码实现</h5>
+                        <pre>
+                            <code>var calculateBonus = function( performanceLevel, salary ){
+
+    if ( performanceLevel === 'S' ){
+        return salary * 4;
+    }
+
+    if ( performanceLevel === 'A' ){
+        return salary * 3;
+    }
+
+    if ( performanceLevel === 'B' ){
+        return salary * 2;
+    }
+
+};
+
+calculateBonus( 'B', 20000  );        // 输出：40000
+calculateBonus( 'S', 6000 );        // 输出：24000</code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h5>使用策略模式重构代码</h5>
+                        <pre>
+                            <code>//定义一个策略类
+  var strategies = {
+    "S": function( salary ){
+        return salary * 4;
+    },
+    "A": function( salary ){
+        return salary * 3;
+    },
+    "B": function( salary ){
+        return salary * 2;
+    }
+};
+// 定义Context环境类，维持对策略对象的引用
+var calculateBonus = function( level, salary ){
+    return strategies[ level ]( salary );
+};
+// 实际调用
+console.log( calculateBonus( 'S', 20000 ) );        // 输出： 80000
+console.log( calculateBonus( 'A', 10000 ) );        // 输出： 30000</code>
+                        </pre>
+                    </section>
+                    <section>
+                        <p>针对不同的具体策略类，环境角色执行了不同的策略方法。 当我们日后需要增加新的策略时，我们只需要新建一个具体的策略类来实现抽象策略接口即可</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>观察者模式</h3>
+                    </section>
+                    <section>
+                        <p style="font-size: 28px;text-align: left;">有时被称作发布/订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。
+                            这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。</p>
+                        <p style="font-size: 28px;text-align: left;">在Java中通过Observable类和Observer接口实现了观察者模式。一个Observer对象监视着一个Observable对象的变化，
+                            当Observable对象发生变化时，Observer得到通知，就可以进行相应的工作。</p>    
+                    </section>
+                    <section>
+                        <pre style="font-size: 28px">在ng中实现观察者模式的体现是我们在项目中建立了不同的作用域，
+有父级，子级，兄弟级，ng在不同的作用域之间数据传递或者事件渲染定义好了方法</pre>
+                        <pre><code>1.$emit向parent controller（父级controller）传递event与data
+2.$broadcast向child controller（子集controller）传递event与data
+3.$on用于接收event
+4.deregister()用于销毁事件</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <p>符合前端端情的MVC</p>
+                    </section>
+                    <section>
+                        <p>做法</p>
+                        <p style="text-align: left;font-size: 30px">把数据请求和数据操作放在model中</p>
+                        <p style="text-align: left;font-size: 30px">对视图的操作和改变放在view中</p>
+                        <p style="text-align: left;font-size: 30px">事件绑定放controller中</p>
+                        <img src="images/3.png"/>
+                    </section>
+                    <section>
+                        <p>优点</p>
+                        <p style="font-size: 28px;text-align: left">可以由不同的人并行推进对model和view的内部实现，而不关心对方怎么实现，
+                            只管负责自己内部的实现并抛出事件，并约定好通过事件所传递的数据的格式即可，就像前端和后端的分离那样。</p>
+                        <p style="font-size: 28px;text-align: left">从容应对灵活多变的业务需求，只要在controler中修改所绑定的事件名和实现相应操作的回调函数即可。
+                            controler要做的就是做决定：决定在哪个事件被抛出时，调用实现哪个操作的方法。</p>
+                        <p style="font-size: 28px;text-align: left">可以很方便的卸载、装载以及修改各个特性。</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <p>来看看Backbone吧</p>
+                    </section>
+                    <section>
+                        <h1>
+                            <img src="images/6.png"/>
+                        </h1>
+                    </section>
+                    <section>
+                        <p style="text-align: left;font-size: 30px">
+                            在backbone.js中，你可以把数据作为Model，即通过Model你可以创建数据，进行数据验证，销毁或者保存到服务器上。当界面上的操作引起model中属性的变化时，model会触发change的事件。那些用来显示model状态的views会接受到model触发change的消息，进而发出对应的响应，并且重新渲染新的数据到界面。</p>
+                           <p style="text-align: left;font-size: 30px"> backbone.js涉及到三个部分，即view、model、collection。model代表一个数据模型，collection是模型的一个集合，而view是用来处理页面以及简单的页面逻辑的。
+                        </p>
+                    </section>
+                    <section>
+                        <p>route的使用</p>
+                        <pre>
+                            <code>var AppRouter = Backbone.Router.extend({  
+    routes : {  
+        '' : 'main',  
+        'topic' : 'renderList',  
+        'topic/:id' : 'renderDetail',  
+        '*error' : 'renderError'  
+    },  
+    main : function() {  
+        console.log('应用入口方法');  
+    },  
+    renderList : function() {  
+        console.log('渲染列表方法');  
+    },  
+    renderDetail : function(id) {  
+        console.log('渲染详情方法, id为: ' + id);  
+    },  
+    renderError : function(error) {  
+        console.log('URL错误, 错误信息: ' + error);  
+    }  
+});  
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/18/hello-world/" class="article-date">
-  <time datetime="2016-10-18T09:27:46.000Z" itemprop="datePublished">2016-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+var router = new AppRouter();  
+Backbone.history.start();  </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <pre>
+                            <code>
+var ListView = Backbone.View.extend({  
+        tagName : 'div',  
+        className : 'listview',  
+        id : 'list',  
+        attributes : {  
+            title : '列表',  
+            style : 'color:red'  
+        }, 
+        pageInit ： function(){
+            this.listenTo(this.model,'all',this.render());
+        }
+        events : {
+            //点击某个dom节点，进行对应的事件处理
+            'click #dom domclicked'
+        },
+        domclicked :  function(){
+            //code something
+        } 
+        render : function() {  
+            this.el.innerHTML = 'Hello World!';  
+            document.body.appendChild(this.el);  
+        }  
+    });  
+var listview = new ListView();  
+listview.render();  
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <pre>
+                            <code>
+// 定义Book模型类  
+var Book = Backbone.Model.extend({  
+    validate : function(data) {  
+        if(data.price < 1) {  
+            return '书籍价格不应低于1元.';  
+        }  
+        return false;  
+    }  
+});  
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/18/hello-world/">Hello World</a>
-    </h1>
+var javabook = new Book({  
+    price : 50  
+});  
   
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/18/hello-world/" data-id="ciufdckcw0000dc2sm5wp09vi" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
+// 监听error事件，当验证失败时触发  
+javabook.on('error', function(model, error) {  
+    console.log(error);  
+});  
   
-</article>
+// 在调用set()方法时，传递了一个配置对象，包含自定义的error处理方法  
+javabook.set('price', 0, {  
+    error : function(model, error) {  
+        console.log('自定义错误：' + error);  
+    }  
+});  
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h1>
+                            <img src="images/7.png">
+                            <img src="images/8.jpg">
+                        </h1>
+                    </section>
+                    <section>
+                        <h1>
+                            <img src="images/9.jpg">
+                        </h1>
+                    </section>
+                    <section>
+                        <p>第一，简单，思想不错，用多了对自己写代码肯定有帮助</p>
+                        <p>第二，自由，很多地方需要自己去操作DOM，自己向里面添加框架，插件，更多的需要自己去实现</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <p>再看看angular</p>
+                    </section>
+                    <section>
+                        <img src="images/5.png">
+                    </section>
+                    <section>
+                        <ul>
+                            <li>1. angular双向数据绑定原理</li>
+                            <li>2. angular的“依赖注入”</li>
+                            <li>3. angular的优缺点</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p style="text-align: left;font-size: 28px">脏检查机制：Angular将双向绑定转换为一堆watch表达式，然后递归这些表达式检查是否发生过变化，
+                            如果变了则执行相应的watcher函数（指view上的指令，如ng-bind，ng-show等或是{{}}）。
+                            等到model中的值不再发生变化，也就不会再有watcher被触发，一个完整的digest循环就完成了</p>
+                        <P style="text-align: left;font-size: 28px">如果执行了一次digest循环后某个值发生了变化，
+                            那么AngularJS会再次循环，直至不再有任何变化。这是因为你在$watch中更新某个值，如果该值对应的$watch已在这遍循环通过，
+                            AngularJS将检测不到变化无法更新。如果循环运行了10次或更多次，AngularJS会抛出异常并停止。</P>
+                    </section>
+                    <section>
+                        <img src="images/10.png">
+                    </section>
+                    <section>
+                        
+                    </section>
+                    <section>
+                        <pre>
+                            <code>
+function PetKeeper(pet) {
+  this.pet = pet;
+}
 
+PetKeeper.prototype.feed = function(food) {
+  this.pet.eat(food);
+};
 
-  
+function Pet(type) {
+  this.type = type;
+}
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+Pet.prototype.eat = function(food) {
+  alert("I am a " + this.type + ", I'm eating " + food);
+};
 
-  
-    
+var tom = new Pet("cat");
+var jerry = new Pet("mouse");
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
-    </div>
-  </div>
+var keeper = new PetKeeper(tom);
+keeper.feed("fish");
 
+keeper.pet = jerry;
+keeper.feed("rice");
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/18/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+                            </code>
+                        </pre>
+                        <p style="text-align: left;font-size: 26px">pet是外部注入的，在feed函数定义里，并不知道pet到底是什么，
+                            只有当它被调用的时候，才知道pet是什么。如果是在Petkeeper中去创建，就会对pet产生依赖，不利于解耦</p>
+                    </section>
+                    <section>
+                        <p style="text-align: left;font-size: 24px">数组标注：最常用且推荐的方式。例如：</p>
+                        <pre>
+                            <code>
+myApp.controller('smallCatCtrl', ['$scope', function($scope){
+    $scope.sayCat = function(){
+    alert('I Love Circle!');
+}
+}]);
+                            </code>
+                        </pre>
+                        <P style="text-align: left;font-size: 24px">$inject属性标注：这种方式通过工厂方法的$inject属性声明依赖的组件，
+                            主要用于js被压缩/混淆时，变量被重命名的情况。</P>
+                        <pre>
+                            <code>
+var MyController = function($scope, myService) {
+  // ...
+}
+MyController.$inject = ['$scope', 'myService'];
+myApp.controller('MyController', MyController);
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <P style="text-align: left;font-size: 24px">angular的优点</P>
+                        <pre><code>1.模块功能强大，丰富的angular指令
+2.自定义Directive，比jQuery插件还灵活
+3.和HTML结合在一起写逻辑. HTML结构有清晰的划分.
+4.ng模块化引入了Java的一些东西（依赖注入），能够很容易的写出可复用的代码
+5.不依赖第三方库                        </code>
+                        </pre>
+                        <P style="text-align: left;font-size: 24px">angular的劣势</P>
+                        <pre>
+                            <code>1.兼容性较差，适用于IE9以上，更适合于移动端
+2.对SEO不友好
+3.数据绑定使得 Bug 很难被调试。你看到界面异常了，有可能是你
+ View 的代码有 Bug，也可能是 Model 的代码有问题。数据绑定使得
+ 一个位置的 Bug 被快速传递到别的位置，要定位原始出问题的地方就变得不那么容易了。
+4.对于特别复杂的应用场景，性能存在问题,数据绑定需要花费更多的内存。
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <section>如何选取前端MVC框架</section>
+                    <section>
+                        <P>Web构建的思考</P>
+                        <P style="color: peachpuff">状态</P>
+                        <P style="color: peachpuff">组织</P>
+                        <P style="color: peachpuff">效率</P>
+                    </section>
+                    <section>
+                        <P>状态</P>
+                        <p style="font-size: 28px;text-align: left">在一个业务界面中，我们可能会根据某些数据去生成一块界面，然后通过界面上的某些操作，
+                            改变一些数据，从而影响界面的另外一些部分。</p>
+                        <p style="font-size: 28px;text-align: left">一种是从数据到界面，一种是从界面到数据。能够描述界面当前状况的数据，就可以被称为状态，
+                            不对状态抽象会引起逻辑复杂</p>
+                        <p style="font-size: 28px;text-align: left;">
+                        如果不对状态出抽象，就会导致逻辑的混乱，比如一个地方变了，要改动多处的代码，如果代码
+                        直接写，很容易出现问题
+                        </p> 
+                        <p style="font-size: 28px;text-align: left;color: orange">
+                         MVVM流，通过类似模板的语法，描述页面状态与数据的绑定关系，通过内部转换，把这个结构建立
+                         起来，React采用了函数式流派，推崇单向数据流，给定原始界面（或数据），施加一个变化，就能推导
+                         出另外一个状态（界面或者数据的更新）。
+                        </p>   
+                    </section>
+                    <section>
+                        <p>组织</p>
+                        <P>模块关系以及业务模型</P>
+                    </section>
+                    <section>
+                        <p>解决模块关系的呢？共识就是组件化。整个应用形成倒置的组件树，每个组件提供对外接口，然后内部只关注自己的实现，但实际做的时候还是有非常多需要考虑的东西，包括组件的定义，约束，管理，测试等等，</p>
+                    </section>
+                    <section>
+                        <p>效率</p>
+                        <P>开发效率以及运行效率</P>
+                    </section>
+                    <section>
+                        <p style="font-size: 28px;text-align: left;">组件化，这是提升开发效率的一种手段，在组件化这个点上，各路框架的组织方式大同小异，反正最终都是组件树。</p>
+                        <p style="font-size: 28px;text-align: left;">运行效率的另外一面主要是创建和修改DOM，在创建上，各大框架没有太大差异的，而在修改DOM的时候，React首创的虚拟DOM有很大优势</p>
+                    </section>
+                    <section>
+                        <P>能解决痛点即是选择的初衷</P>
+                        <P>MVC只是过程，而不是结果，不能为了MVC而MVC</P>
+                    </section>
+                </section>
+                <section>
+                    <p>参考文献</p>
+                    <ul>
+                        <li>观察者模式在angular中的应用</li>
+                        <li>侃侃前端MVC模式</li>
+                        <li>深入理解JavaScript系列（33）：设计模式之策略模式</li>
+                        <li>单页应用有那些优缺点？</li>
+                        <li>23种设计模式</li>
+                        <li>被误解的 MVC 和被神化的 MVVM</li>
+                        <li>Web应用组件化的权衡 </li>
+                        <li>Which should I learn: Mithril, Vue, or Angular?</li>
+                        <li>同作为JavaScript MVC框架，Backbone和AngularJS各有什么优缺点？</li>
+                        <li>设计模式学习笔记-观察者模式</li>
+                    </ul>
+                </section>
+                <section>
+                    <P>谢谢观赏</P>
+                </section>
+			</div>
+		</div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
 </html>
